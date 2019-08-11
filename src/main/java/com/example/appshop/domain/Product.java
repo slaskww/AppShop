@@ -1,7 +1,8 @@
 package com.example.appshop.domain;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "PRODUCTS")
@@ -9,16 +10,25 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", updatable = false, nullable = false)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
+    @NotBlank
     @Column(name = "NAME", nullable = false)
     private String name;
-    @Column(name = "CATEGORY", nullable = false)
+
+    @NotBlank
+    @Column(name = "CATEGORY_NAME", nullable = false)
     private String category;
-    @Column(name ="GROUP", nullable = false)
+
+    @Column(name ="GROUP_NAME", nullable = false)
+    @NotBlank
     private String group;
+
     @Column(name = "PRICE",nullable = false)
-    private BigDecimal price;
+    @NotNull
+    private double price;
+
+    @NotBlank
     @Column(name = "DESCRIPTION")
     private String description;
 
@@ -54,11 +64,11 @@ public class Product {
         this.group = group;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

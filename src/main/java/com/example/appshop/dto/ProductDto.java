@@ -2,20 +2,15 @@ package com.example.appshop.dto;
 
 
 import javax.validation.constraints.NotEmpty;
-import java.math.BigDecimal;
+import javax.validation.constraints.NotNull;
 
 public class ProductDto {
 
     private Long id;
-    @NotEmpty
     private String name;
-    @NotEmpty
     private String category;
-    @NotEmpty
     private String group;
-    @NotEmpty
-    private BigDecimal price;
-    @NotEmpty
+    private double price;
     private String description;
 
     public Long getId() {
@@ -50,11 +45,11 @@ public class ProductDto {
         this.group = group;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -64,5 +59,17 @@ public class ProductDto {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", group='" + group + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

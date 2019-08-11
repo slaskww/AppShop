@@ -13,8 +13,22 @@ public class ProductMapper {
         product.setDescription(productDto.getDescription());
         product.setGroup(productDto.getGroup());
         product.setPrice(productDto.getPrice());
+        product.setName(productDto.getName());
 
         return product;
+    }
+
+    public static ProductDto toDto(Product product){
+
+        ProductDto productDto = new ProductDto();
+        productDto.setId(product.getId());
+        productDto.setCategory(product.getCategory());
+        productDto.setDescription(product.getDescription());
+        productDto.setGroup(product.getGroup());
+        productDto.setPrice(product.getPrice());
+        productDto.setName(product.getName());
+
+        return productDto;
     }
 
 }
